@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import { Photolist, PhotoViewer } from './component/PhotoViewer';
+
+//const [imgSrc, setImgSrc] = useState("https://picsum.photos/id/600/1600/900.jpg");
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div className="App-div">
+        <h1>React Photo Viewer</h1>
+        <PhotoViewer src={"https://picsum.photos/id/600/1600/900.jpg"}/>
+        <h1>Select your photo</h1>
+        <Photolist/>
+      </div>
 
+    );
+}
 export default App;

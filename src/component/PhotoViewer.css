@@ -1,0 +1,22 @@
+.my-main-photo{
+    display:flex;
+    justify-content: center;
+}
+
+.my-main-photo img{
+    width :100%;
+    height: 400px;
+}
+
+.photo-list{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+
+.photo-list img{
+    width: 200px;
+    margin: 2px;
+    height: 100px;
+}

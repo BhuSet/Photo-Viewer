@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.App-div{
+  display:flex;
+  flex-direction: column;
+  max-width: 820px;
+  margin: 0 auto;
+}
