@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import './PhotoViewer.css';
-import { ImageContext } from "./ImageContext";
+import { ImageContext ,IndexContext } from "./ImageContext";
 
 export function PhotoViewer({src}){
     return(
@@ -30,14 +30,25 @@ function getImageUrls() {
 
 export function Getlist() {
   let { imgSrc, setImgSrc } = useContext(ImageContext);
+  /*let { index, setIndex } = useContext(IndexContext);
   
-  /*function SetnewImage (newurl){
+  function SetnewImage (newurl, newindex){
+    setIndex(index = newindex);
     setImgSrc(imgSrc = newurl);
-    console.log("new image is set!!");
-  }*/
+    console.log(`new image is set!!${index}`);
+  }
+  */
 
   return <div class= "photo-list">
-    { getImageUrls().map( (url, index) => <img src={url} alt="Random" key={index} onClick = {()=>setImgSrc(imgSrc=url)}/> ) }
+    { getImageUrls().map( (url, idx) => {
+        const isThisSelectedImage = url === imgSrc;
+        
+        //if(idx === index)
+          return <img src={url} class = {isThisSelectedImage?"selected-image":"nonselected-image"} alt="Random"  onClick = {()=>setImgSrc(imgSrc=url)} /*onClick = {()=> {SetnewImage(url, idx)}}*//>
+        //else  
+          //return <img src={url} alt="Random"  onClick = {()=> {SetnewImage(url, idx)}}/>
+      }
+    ) }
   </div>
 }
 

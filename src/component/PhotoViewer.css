@@ -15,8 +15,16 @@
 }
 
 
-.photo-list img{
+.nonselected-image{
     width: 200px;
     margin: 2px;
     height: 100px;
+    box-sizing: border-box;
+}
+.selected-image{
+    width: 200px;
+    margin: 2px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 2px solid orange;
 }
