@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import './PhotoViewer.css';
-//import { useState, useEffect } from 'react';
+import { ImageContext } from "./ImageContext";
 
 export function PhotoViewer({src}){
     return(
@@ -11,16 +11,34 @@ export function PhotoViewer({src}){
     );
 }
 
-export function Photolist(){
-    return(
-        <div className ="photo-list">
-            <img src="https://picsum.photos/id/100/367/267" alt ="loading error"/>
-            <img src="https://picsum.photos/id/1000/367/267" alt ="loading error"/>
-            <img src="https://picsum.photos/id/1003/367/267" alt ="loading error"/>
-            <img src="https://picsum.photos/id/101/367/267" alt ="loading error"/>
-            <img src="https://picsum.photos/id/1011/367/267" alt ="loading error"/>
-            <img src="https://picsum.photos/id/1016/367/267" alt ="loading error"/>
-        </div>
+const brokenImages = [
+  1, 24, 32, 36, 44, 47
+];
 
-    );
+function getImageUrls() {
+  const urls = [];
+
+  for (let i = 0; i < 50; i++) {
+      if (!brokenImages.includes(i)) {
+          const imageNumberString = i.toString().padStart(2, '0');
+          urls.push(`https://picsum.photos/id/6${imageNumberString}/1600/900.jpg`)
+      }
+  }
+
+  return urls;
 }
+
+export function Getlist() {
+  let { imgSrc, setImgSrc } = useContext(ImageContext);
+  
+  /*function SetnewImage (newurl){
+    setImgSrc(imgSrc = newurl);
+    console.log("new image is set!!");
+  }*/
+
+  return <div class= "photo-list">
+    { getImageUrls().map( (url, index) => <img src={url} alt="Random" key={index} onClick = {()=>setImgSrc(imgSrc=url)}/> ) }
+  </div>
+}
+
+
