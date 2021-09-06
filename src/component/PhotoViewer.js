@@ -30,23 +30,11 @@ function getImageUrls() {
 
 export function Getlist() {
   let { imgSrc, setImgSrc } = useContext(ImageContext);
-  /*let { index, setIndex } = useContext(IndexContext);
-  
-  function SetnewImage (newurl, newindex){
-    setIndex(index = newindex);
-    setImgSrc(imgSrc = newurl);
-    console.log(`new image is set!!${index}`);
-  }
-  */
 
   return <div class= "photo-list">
     { getImageUrls().map( (url, idx) => {
         const isThisSelectedImage = url === imgSrc;
-        
-        //if(idx === index)
-          return <img src={url} class = {isThisSelectedImage?"selected-image":"nonselected-image"} alt="Random"  onClick = {()=>setImgSrc(imgSrc=url)} /*onClick = {()=> {SetnewImage(url, idx)}}*//>
-        //else  
-          //return <img src={url} alt="Random"  onClick = {()=> {SetnewImage(url, idx)}}/>
+          return <img src={url} class = {isThisSelectedImage?"selected-image":"nonselected-image"} alt="Random"  onClick = {()=>setImgSrc(url)}/>
       }
     ) }
   </div>
